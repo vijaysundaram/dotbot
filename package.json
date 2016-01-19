@@ -1,0 +1,17 @@
+{
+  "name": "dotbot",
+  "version": "0.0.1",
+  "description": "Slack bot scaffolding",
+  "main": "dotbot.js",
+  "scripts": {
+    "start": "node dotbot.js"
+  },
+  "author": "Vijay Sundaram",
+  "license": "MIT",
+  "dependencies": {
+    "botkit": "^0.0.5"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
