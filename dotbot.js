@@ -1,6 +1,11 @@
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
 
+// Botkit-based Redis store
+var Redis_Store = require('./redis_storage.js');
+var redis_url = "redis://127.0.0.1:6379"
+var redis_store = new Redis_Store({url: redis_url});
+
 require('./env.js');
 
 if (!process.env.clientId || !process.env.clientSecret || !process.env.port) {
@@ -10,7 +15,7 @@ if (!process.env.clientId || !process.env.clientSecret || !process.env.port) {
 
 
 var controller = Botkit.slackbot({
-  json_file_store: './db_slackbutton_bot/',
+  storage: redis_store,
 }).configureSlackApp(
   {
     clientId: process.env.clientId,
